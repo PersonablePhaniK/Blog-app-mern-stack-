@@ -15,7 +15,7 @@ import { setErrors, clearErrors } from "./errorActions";
 export const createPost = (postData, history) => (dispatch) => {
   dispatch(togglePostLoading());
   axios
-    .post("http://localhost:5000/api/posts/create", postData)
+    .post("/api/posts/create", postData)
     .then((res) => {
       dispatch({
         type: CREATE_POST,
@@ -33,7 +33,7 @@ export const createPost = (postData, history) => (dispatch) => {
 export const getPostByID = (id) => (dispatch) => {
   dispatch(togglePostLoading());
   axios
-    .get(`http://localhost:5000/api/posts/post/${id}`)
+    .get(`/api/posts/post/${id}`)
     .then((res) => {
       dispatch({
         type: GET_POST,
@@ -51,7 +51,7 @@ export const getPostByID = (id) => (dispatch) => {
 export const getPostsByAuthor = (author) => (dispatch) => {
   dispatch(togglePostsLoading());
   axios
-    .get(`http://localhost:5000/api/posts/author/`)
+    .get(`/api/posts/author/`)
     .then((res) => {
       dispatch({
         type: GET_POSTS,
@@ -68,7 +68,7 @@ export const getPostsByAuthor = (author) => (dispatch) => {
 export const getPosts = () => (dispatch) => {
   dispatch(togglePostsLoading());
   axios
-    .get(`http://localhost:5000/api/posts/`)
+    .get(`/api/posts/`)
     .then((res) => {
       dispatch({
         type: GET_POSTS,
@@ -86,7 +86,7 @@ export const getPosts = () => (dispatch) => {
 export const updatePost = (id, postData, history) => (dispatch) => {
   dispatch(togglePostLoading());
   axios
-    .patch(`http://localhost:5000/api/posts/update/${id}`, postData)
+    .patch(`/api/posts/update/${id}`, postData)
     .then((res) => {
       dispatch({
         type: UPDATE_POST,
@@ -103,7 +103,7 @@ export const updatePost = (id, postData, history) => (dispatch) => {
 
 export const deletePost = (id, history) => (dispatch) => {
   dispatch(togglePostLoading());
-  axios.delete(`http://localhost:5000/api/posts/delete/${id}`).then(res => {
+  axios.delete(`/api/posts/delete/${id}`).then(res => {
       dispatch({
           type: DELETE_POST,
           payload: id
